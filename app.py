@@ -40,5 +40,12 @@ def calculate_ziwei():
 
     return jsonify(result)
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+@app.route('/')
+def home():
+    return "Hello, this is your Flask API running on Render!"
+
+# 這一行很重要，讓 Render 正確識別 Flask 變數名稱
+server = app
+
+if __name__ == "__main__":
+    server.run(host="0.0.0.0", port=5000)
