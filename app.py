@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # 新增 CORS 支援
 from ziwei_calculator import calculate_ziwei
 from ziwei_database import save_ziwei_result, get_all_results
 
 app = Flask(__name__)
+CORS(app)  # 允許跨域請求
 
 @app.route('/ziwei', methods=['POST'])
 def ziwei_api():
